@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 00:11:19 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/14 20:16:57 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/17 14:13:25 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ unsigned char	**ft_mallocmap(int x, int y)
 	int				i;
 	unsigned char	**map;
 
-	i = 0;
+	i = -1;
 	map = ft_memalloc(sizeof(unsigned char *) * y + 1);
-	while (i < y)
-		map[i++] = ft_memalloc(sizeof(unsigned char) * x + 1);
+	while (++i < y)
+		map[i] = ft_memalloc(sizeof(unsigned char) * x + 1);
 	map[i] = NULL;
 	return (map);
 }
@@ -37,7 +37,11 @@ void			ft_initmap(unsigned char **map, int x, int y)
 		j = -1;
 		get_next_line(0, &line);
 		while (++j < x)
+		{
 			map[i][j] = line[4 + j];
+			//ft_putchar_fd(map[i][j], 2);
+		}
+		//ft_putchar_fd('\n', 2);
 		free(line);
 	}
 }
@@ -53,16 +57,22 @@ void			ft_initpiece(unsigned char **piece, int x, int y)
 	{
 		j = -1;
 		get_next_line(0, &line);
+		/*ft_putstr_fd(line,3);
+		ft_putchar_fd('\n',3);*/
 		while (++j < x)
+		{
 			piece[i][j] = line[j];
-		free(line);
+			//ft_putchar_fd(piece[i][j],3);
+		}
+		//ft_putchar_fd('\n',3);
+		//free(line);
 	}
 }
 
-int 	**ft_malloc_xymap(int x, int y)
+int				**ft_malloc_xymap(int x, int y)
 {
-	int				i;
-	unsigned char	**map;
+	int		i;
+	int		**map;
 
 	i = 0;
 	map = ft_memalloc(sizeof(int *) * y + 1);

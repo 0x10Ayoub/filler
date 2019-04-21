@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhourba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/18 15:42:29 by akhourba          #+#    #+#             */
-/*   Updated: 2018/10/24 21:38:14 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:00:45 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 100000
+# define BUFF_SIZE 1
 
 # include <fcntl.h>
 

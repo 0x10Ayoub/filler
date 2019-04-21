@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 20:07:21 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/12 12:39:26 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/16 22:24:06 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,18 @@ char		ft_getplayer(void)
 	return (c);
 }
 
-void		ft_getsizemap(int *x, int *y)
+void		ft_getsizemap(t_filler *f)
 {
 	char	*table;
 	int		i;
 
-	i = 0;
+	i = 8;
 	get_next_line(0, &table);
-	while (table[i] != ' ' && table[i] != '\0')
-		i++;
-	*x = ft_atoi(&table[i]);
+	f->ly = ft_atoi(&table[i]);
 	i++;
 	while (table[i] != ' ' && table[i] != '\0')
 		i++;
-	*y = ft_atoi(&table[i]);
+	f->lx = ft_atoi(&table[i]);
 }
 
 void		ft_getsizepiece(int *px, int *py)
@@ -50,9 +48,9 @@ void		ft_getsizepiece(int *px, int *py)
 
 	i = 6;
 	get_next_line(0, &piece);
-	*px = ft_atoi(&piece[i]);
+	*py = ft_atoi(piece+i);
 	while (piece[i] != ' ' && piece[i] != '\0')
 		i++;
-	*py = ft_atoi(&piece[i]);
+	*px = ft_atoi(&piece[i]);
 	free(piece);
 }
