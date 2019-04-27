@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 20:07:21 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/16 22:24:06 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/25 21:09:07 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void		ft_getsizepiece(int *px, int *py)
 
 	i = 6;
 	get_next_line(0, &piece);
-	*py = ft_atoi(piece+i);
+	*py = ft_atoi(piece + i);
 	while (piece[i] != ' ' && piece[i] != '\0')
 		i++;
 	*px = ft_atoi(&piece[i]);

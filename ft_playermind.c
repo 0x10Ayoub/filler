@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:07:59 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/21 01:25:33 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/21 02:01:04 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ int		ft_testpalce(t_filler *f, int posx,int posy)
 	int i;
 	int j;
 
-	i = f->ey-1;
+	i = -1;
 	f->tpos = 0;
 	while (++i < f->ybnd)
 	{
-		j = f->ex-1;
+		j = -1;
 		while (++j < f->xbnd)
 		{
 			if(f->piece[i + f->ey][j + f->ex] == '*' &&
@@ -98,7 +98,6 @@ int ft_place(t_filler *f)
 
 void		ft_play(t_filler *f)
 {
-
 	if(ft_place(f) == 1)
 	{
 		ft_putnbr_fd(f->setx,1);

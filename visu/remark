@@ -1,0 +1,41 @@
+SDL_Window *win;
+	SDL_Event event;
+	SDL_Surface *win_surf = NULL;
+ 	if(SDL_Init(SDL_INIT_VIDEO) !=0)
+		 printf("error %s",SDL_GetError());
+	win = SDL_CreateWindow(
+		"Filler battle",                 
+		SDL_WINDOWPOS_CENTERED,           
+		SDL_WINDOWPOS_CENTERED,           
+		1200,                               
+		1000,                               
+		SDL_WINDOW_OPENGL               
+	);
+	    if (win == NULL) {
+        printf("Could not create window: %s\n", SDL_GetError());
+        return 1;
+    }
+	win_surf = SDL_GetWindowSurface(win);
+	SDL_Surface *imgsurface = SDL_LoadBMP("tetris.bmp");
+	SDL_BlitSurface(imgsurface,NULL,win_surf,NULL);
+	SDL_UpdateWindowSurface(win);
+	SDL_Rect rect;
+	rect.h = 10;
+	rect.w = 10;
+	rect.x = 10;
+	rect.y = 10;
+	Uint32 somecolor = SDL_MapRGB(win_surf->format,255,231,100);
+	SDL_FillRect(win_surf,&rect,somecolor);
+	rect.h = 100;
+	rect.w = 100;
+	rect.x = 20;
+	rect.y = 20;
+	SDL_FillRect(win_surf,&rect,somecolor);
+	SDL_UpdateWindowSurface(win);
+		ft_printf("test\n");
+	while (1) {
+        if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
+            break;
+    }
+	SDL_FreeSurface(imgsurface);
+	SDL_Quit();
