@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 20:46:56 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/26 20:25:40 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/29 22:20:09 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,27 @@ unsigned char	**ft_mallocgrid(int w, int h)
 	return (map);
 }
 
-void		ft_getskippiece()
+void		ft_getskippiece(t_visu *v)
 {
 	char	*line;
-	int		i;
+	//int		i;
 
-	get_next_line(0, &line);
+	/*v->isread = get_next_line(0, &line);
 	i = ft_atoi(line + 6);
-	free(line);
-	while(--i >=0 )
+	free(line);*/
+	//dprintf(2,"ok test\n");
+	while(v->isread == 1)
 	{
-		get_next_line(0,&line);
+		v->isread = get_next_line(0,&line);
+	//	dprintf(2,"|%s\n",line);
+		if(line[0] == 'P' && line[1] == 'l')
+		{
+
+			free(line);
+			break;
+		}
+		free(line);
 	}
-	
+	//v->isread = get_next_line(0,&line);
+	//free(line);
 }

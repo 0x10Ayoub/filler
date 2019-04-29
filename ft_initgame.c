@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 00:11:19 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/25 21:08:16 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/27 16:06:10 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,26 @@ unsigned char	**ft_mallocmap(int x, int y)
 	unsigned char	**map;
 
 	i = -1;
-	map = ft_memalloc(sizeof(unsigned char *) * y);
+	map = ft_memalloc(sizeof(unsigned char *) * y + 1);
 	while (++i < y)
-		map[i] = ft_memalloc(sizeof(unsigned char) * x);
+		map[i] = ft_memalloc(sizeof(unsigned char) * x + 1);
 	map[i] = NULL;
 	return (map);
 }
 
-void			ft_initmap(unsigned char **map, int x, int y)
+void			ft_initmap(t_filler *f)
 {
 	int		i;
 	int		j;
 	char	*line;
 
 	i = -1;
-	while (++i < y)
+	while (++i < f->ly)
 	{
 		j = -1;
 		get_next_line(0, &line);
-		while (++j < x)
-			map[i][j] = line[4 + j];
+		while (++j < f->lx)
+			f->map[i][j] = line[4 + j];
 		free(line);
 	}
 }

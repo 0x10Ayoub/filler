@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 16:48:41 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/27 10:53:24 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/29 21:21:12 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void		ft_puttext(t_visu *v,char *text,int x,int y)
 	fc.r = 26;
 
 	bc.a = 0;
-	bc.b = 0;
-	bc.g = 0;
-	bc.r = 0;
+	bc.b = 255;
+	bc.g = 255;
+	bc.r = 255;
 
 	textSurface = TTF_RenderText_Shaded(font,text,fc,bc);
 	tx_locat.x = x;

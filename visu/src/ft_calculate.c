@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 21:34:08 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/26 22:26:04 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/29 22:00:24 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ void		ft_put_grid(t_visu *v)
 {
 	int i;
 	int j;
+	int max;
+	int h;
 	SDL_Rect rect;
 	Uint32 color;
 
 	i = -1;
-	if(v->wgrid > 60)
-	{
-	rect.h = 5 ;
-	rect.w = 5 ;
-	}else{
-	rect.h = 10 + (v->wgrid/8);
-	rect.w = 10 + (v->wgrid/8);
-	}
+	max = v->hgrid > v->wgrid ? v->hgrid : v->wgrid;
+	max += ((max/2) * 2);
+	h = max;
 	rect.y = 100;
+	rect.h = v->hgrid  * ((800/max)+2);
+	rect.w = v->wgrid  * ((800/max)+2);
+	rect.x = 50+(800/max)+2;
+	color = SDL_MapRGBA(v->win_surf->format, 55, 55, 55,25);
+	SDL_FillRect(v->win_surf,&rect,color);
+	rect.h = 800 / max;
+	rect.w = 800 / max;
 	while (++i < v->hgrid)
 	{
 		j = -1;

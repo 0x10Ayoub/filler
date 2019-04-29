@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 20:19:52 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/21 02:00:48 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/27 16:00:20 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,13 @@ typedef struct	s_filler
 	char			pchar;
 	int				xbnd;
 	int				ybnd;
+	int				isread;
 }				t_filler;
 
 char			ft_getplayer();
 void			ft_getsizemap(t_filler *f);
 unsigned char	**ft_mallocmap(int x, int y);
-void			ft_initmap(unsigned char **map, int x, int y);
+void			ft_initmap(t_filler *f);
 void			ft_getsizepiece(int *px, int *py);
 void			ft_initpiece(unsigned char **piece, int x, int y);
 int				ft_scanmap(int **map, int lx, int ly, int c);

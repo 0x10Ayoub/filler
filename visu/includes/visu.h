@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:05:07 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/26 20:08:25 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/27 13:01:38 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ SDL_Surface		*ft_setbackground(SDL_Window *win, SDL_Surface **img);
 void			ft_handl_data(SDL_Window *win, SDL_Surface *win_surf, int w, int h);
 void			ft_getsizegrid(t_visu *v);
 unsigned char	**ft_mallocgrid(int w, int h);
-int			ft_initgrid(t_visu *v, int w, int h);
-void			ft_getskippiece();
+int				ft_initgrid(t_visu *v, int w, int h);
+void			ft_getskippiece(t_visu *v);
 void			ft_put_grid(t_visu *v);
 void			ft_puttext(t_visu *v,char *text,int x,int y);
 #endif

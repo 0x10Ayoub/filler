@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:07:59 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/21 02:01:04 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/29 22:11:03 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int		ft_checkpalce(t_filler *f, int posx, int posy)
 
 	i = -1;
 	r = 0;
-	if(posy + f->ybnd> f->ly || posx + f->xbnd > f->lx)
-	return (0);
+	if (posy + f->ybnd > f->ly || posx + f->xbnd > f->lx)
+		return (0);
 	while (++i < f->ybnd)
 	{
 		j = -1;
@@ -72,7 +72,6 @@ int ft_place(t_filler *f)
 	f->setx = 0;
 	f->sety = 0;
 	ft_setoffset(f);
-		//dprintf(2,"ynbd %d xbnd%d\n",f->ybnd,f->xbnd);
 	if (f->ex == -1 || f->ey == -1)
 		return (0);
 	ft_setbounds(f);
@@ -81,10 +80,10 @@ int ft_place(t_filler *f)
 		j = -1;
 		while (++j < f->lx)
 		{
-			if(ft_checkpalce(f,j,i))
+			if (ft_checkpalce(f, j, i))
 			{
-				ft_testpalce(f,j,i);
-				if(f->mapos < 0 || f->tpos <= f->mapos)
+				ft_testpalce(f, j, i);
+				if (f->mapos < 0 || f->tpos <= f->mapos)
 				{
 					f->mapos = f->tpos;
 					f->setx = i - f->ey;
@@ -159,7 +158,7 @@ void	ft_setbounds(t_filler *f)
 			}
 		}
 	}
-	if(f->ybnd >0 || f->ybnd > 0)
+	if(f->ybnd >0 && f->ybnd > 0)
 	{
 		f->ybnd -= f->ey;
 		f->xbnd -= f->ex;
