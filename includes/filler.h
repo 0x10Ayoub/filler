@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 20:19:52 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/27 16:00:20 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/01 20:08:46 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void			ft_play(t_filler *f);
 void			ft_printxymap(int **map,int lx,int ly,int fd);
 void			ft_setoffset(t_filler *f);
 void			ft_setbounds(t_filler *f);
+void			ft_freemap(unsigned char ***map, int y);
 void ft_printmapoffset(unsigned char **map,t_filler *f);
 //test purpose
 void ft_printmap(unsigned char **map,int ly,int lx,int fd);

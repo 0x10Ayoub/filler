@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 21:34:08 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/29 22:00:24 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/04/30 18:57:35 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void		ft_put_grid(t_visu *v)
 	max += ((max/2) * 2);
 	h = max;
 	rect.y = 100;
-	rect.h = v->hgrid  * ((800/max)+2);
-	rect.w = v->wgrid  * ((800/max)+2);
-	rect.x = 50+(800/max)+2;
+	rect.h = v->hgrid * ((800/max)+2);
+	rect.w = v->wgrid * ((800/max)+2);
+	rect.x = 50 + (800/max)+2;
 	color = SDL_MapRGBA(v->win_surf->format, 55, 55, 55,25);
 	SDL_FillRect(v->win_surf,&rect,color);
 	rect.h = 800 / max;
@@ -55,4 +55,46 @@ void		ft_put_grid(t_visu *v)
 		rect.y += rect.h + 2;
 	}
 	SDL_UpdateWindowSurface(v->win);
+}
+void ft_move(t_visu *v,int n)
+{
+	if (v->fram->next && n)
+			v->fram = v->fram->next;
+	else if (v->fram->prev)
+			v->fram = v->fram->prev;
+			ft_put_grid(v);
+	SDL_Delay(10);
+		
+}
+
+void ft_handl_event(t_visu *v)
+{
+	SDL_Event event;
+	int x;
+
+	if(v->co > v->cx)
+		ft_puttext(v,v->str_p1, 1000, 190,20);
+	else if(v->co < v->cx)
+		ft_puttext(v,v->str_p2, 1000, 190,20);
+	else
+		ft_puttext(v,"NO Winer", 1000, 190,20);
+	
+	while (1)
+	{
+		x = 0;
+		while (SDL_PollEvent(&event) && !x)
+		{
+			if (event.type == SDL_KEYDOWN && MODE_key == SDLK_RIGHT)
+				ft_move(v,1);
+			else if (event.type == SDL_KEYDOWN && MODE_key == SDLK_LEFT)
+				ft_move(v,0);
+				x = 1;
+		}
+		if (event.type == SDL_KEYDOWN && MODE_key == SDLK_DOWN)
+			ft_move(v, 1);
+		else if (event.type == SDL_KEYDOWN && MODE_key == SDLK_UP)
+			ft_move(v, 0);
+		if (event.type == SDL_QUIT)
+			break ;
+	}
 }

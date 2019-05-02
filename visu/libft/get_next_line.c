@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/18 15:40:44 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/16 20:29:49 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/01 22:55:27 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,6 @@ int get_next_line(const int fd, char **line)
 	*line = ft_strsub(str, 0, i);
 	if (!ret && !str[0] && !i)
 		return (0);
-	str = ft_strdup(str + i + 1);
+	str = ft_fstrdup(str,str + i + 1);
 	return (1);
 }

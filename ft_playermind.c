@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 23:07:59 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/29 22:11:03 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/01 20:21:59 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_testpalce(t_filler *f, int posx,int posy)
 	return (0);
 }
 
-int ft_place(t_filler *f)
+int	ft_place(t_filler *f)
 {
 	int i;
 	int j;
@@ -97,20 +97,21 @@ int ft_place(t_filler *f)
 
 void		ft_play(t_filler *f)
 {
-	if(ft_place(f) == 1)
+	if (ft_place(f) == 1)
 	{
-		ft_putnbr_fd(f->setx,1);
-		ft_putstr_fd(" ",1);
-		ft_putnbr_fd(f->sety,1);
-		ft_putchar_fd('\n',1);
-	}else
+		ft_putnbr_fd(f->setx, 1);
+		ft_putstr_fd(" ", 1);
+		ft_putnbr_fd(f->sety, 1);
+		ft_putchar_fd('\n', 1);
+	}
+	else
 	{
 		ft_putnbr_fd(0, 1);
 		ft_putstr_fd(" ", 1);
 		ft_putnbr_fd(0, 1);
-		ft_putchar_fd('\n',1);
+		ft_putchar_fd('\n', 1);
 	}
-	
+	ft_freemap(&f->piece,f->py);
 }
 
 void	ft_setoffset(t_filler *f)
@@ -128,9 +129,9 @@ void	ft_setoffset(t_filler *f)
 		{
 			if (f->piece[i][j] == '*')
 			{
-				if(f->ey < 0 && f->ex < 0 )
+				if (f->ey < 0 && f->ex < 0)
 					f->ey = i;
-				if(f->ex < 0 || f->ex > j)
+				if (f->ex < 0 || f->ex > j)
 					f->ex = j;
 			}
 		}
