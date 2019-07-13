@@ -6,13 +6,13 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 18:00:29 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/30 19:12:43 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 22:19:24 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visu.h"
 
-SDL_Window	*ft_setwindow(int w, int h)
+SDL_Window		*ft_setwindow(int w, int h)
 {
 	SDL_Window *win;
 
@@ -36,13 +36,23 @@ SDL_Window	*ft_setwindow(int w, int h)
 	return (win);
 }
 
-SDL_Surface	*ft_setbackground(SDL_Window *win, SDL_Surface **img)
+SDL_Surface		*ft_setbackground(SDL_Window *win, SDL_Surface **img)
 {
 	SDL_Surface *win_surf;
 
 	win_surf = SDL_GetWindowSurface(win);
-	*img = SDL_LoadBMP ("assest/img/tetris.bmp");
+	*img = SDL_LoadBMP("assest/img/tetris.bmp");
 	SDL_BlitSurface(*img, NULL, win_surf, NULL);
 	SDL_UpdateWindowSurface(win);
 	return (win_surf);
+}
+
+void			ft_settext(t_visu *v)
+{
+	if (v->co > v->cx)
+		v->txt = v->str_p1;
+	else if (v->co < v->cx)
+		v->txt = v->str_p2;
+	else
+		v->txt = "NO Winer";
 }

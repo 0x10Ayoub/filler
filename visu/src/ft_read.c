@@ -6,37 +6,24 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 18:50:23 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/30 19:47:51 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 22:13:34 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "visu.h"
-void ft_printmap(unsigned char **map,int lx,int ly,int fd)
-{
-	for(int i = 0; i < ly; i++)
-	{
-		for(int j = 0; j < lx; j++)
-		{
-			ft_putstr_fd("wtfk  ",fd);
-			ft_putchar_fd(map[i][j],fd);
-		}
-		ft_putchar_fd('\n',fd);
-	}
-}
 
-void	ft_skip(int ln,t_visu *v)
+void		ft_skip(int ln, t_visu *v)
 {
 	int		i;
 	char	*line;
-	char *tmp;
+	char	*tmp;
 
 	i = -1;
 	while (++i < ln && get_next_line(0, &line))
 	{
 		if (i == 6 || i == 8)
 		{
-			tmp = ft_strrchr(line, '/');
-			if (tmp)
+			if ((tmp = ft_strrchr(line, '/')))
 			{
 				++tmp;
 				tmp = ft_strsub(tmp, 0, ft_strlenc(tmp, '.'));
@@ -54,10 +41,10 @@ void	ft_skip(int ln,t_visu *v)
 	}
 }
 
-void	ft_handl_data(SDL_Window *win, SDL_Surface *win_surf, int w, int h)
+void		ft_handl_data(SDL_Window *win, SDL_Surface *win_surf, int w, int h)
 {
 	t_visu	v;
-	t_fram *fram;
+	t_fram	*fram;
 
 	v.h = h;
 	v.cx = 0;
@@ -65,13 +52,13 @@ void	ft_handl_data(SDL_Window *win, SDL_Surface *win_surf, int w, int h)
 	v.w = w;
 	v.win = win;
 	v.win_surf = win_surf;
-	v.fd = 0;
-	ft_skip(9,&v);
+	ft_skip(9, &v);
 	v.isread = 1;
 	fram = NULL;
 	ft_putsidebar(&v);
 	ft_getsizegrid(&v);
-	ft_puttext(&v, "filler battle", 600, 50,30);
+	v.txt = "filler battle";
+	ft_puttext(&v, 600, 50, 30);
 	while (ft_initgrid(&v, v.wgrid, v.hgrid) && v.isread == 1)
 	{
 		ft_getskippiece(&v);
@@ -89,7 +76,7 @@ void		ft_getsizegrid(t_visu *v)
 	int		i;
 
 	i = 8;
-	v->isread = get_next_line(v->fd, &table);
+	v->isread = get_next_line(0, &table);
 	v->hgrid = ft_atoi(&table[i]);
 	if (v->hgrid <= 0 || v->hgrid > 100)
 	{
@@ -110,14 +97,14 @@ int			ft_initgrid(t_visu *v, int w, int h)
 	char	*line;
 
 	i = -1;
-	v->isread = get_next_line(v->fd, &line);
+	v->isread = get_next_line(0, &line);
 	free(line);
 	v->fram = malloc(sizeof(t_fram));
 	v->fram->grid = ft_mallocgrid(v->wgrid, v->hgrid);
 	while (++i < h)
 	{
 		j = -1;
-		v->isread = get_next_line(v->fd, &line);
+		v->isread = get_next_line(0, &line);
 		while (++j < w)
 			v->fram->grid[i][j] = line[4 + j];
 		free(line);

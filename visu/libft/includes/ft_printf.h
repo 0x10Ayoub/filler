@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 21:57:42 by akhourba          #+#    #+#             */
-/*   Updated: 2019/01/31 20:36:50 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:57:11 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 # include "libft.h"
 # include <stdarg.h>
+
 typedef struct	s_flags
 {
 	int hash;

@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/18 15:40:44 by akhourba          #+#    #+#             */
-/*   Updated: 2019/05/01 22:52:29 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:58:09 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_gstrjoin(char *s1, char const *s2)
 	return (str);
 }
 
-int get_next_line(const int fd, char **line)
+int		get_next_line(const int fd, char **line)
 {
 	int			ret;
 	char		buf[BUFF_SIZE + 1];
@@ -54,6 +54,6 @@ int get_next_line(const int fd, char **line)
 	*line = ft_strsub(str, 0, i);
 	if (!ret && !str[0] && !i)
 		return (0);
-	str = ft_fstrdup(str,str + i + 1);
+	str = ft_fstrdup(str, str + i + 1);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 20:19:52 by akhourba          #+#    #+#             */
-/*   Updated: 2019/05/01 20:08:46 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 22:30:24 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,15 @@ void			ft_initmap(t_filler *f);
 void			ft_getsizepiece(int *px, int *py);
 void			ft_initpiece(unsigned char **piece, int x, int y);
 int				ft_scanmap(int **map, int lx, int ly, int c);
-int				ft_heatmap(int **map,int lx,int ly,int v);
+int				ft_heatmap(int **map, int lx, int ly, int v);
 int				ft_fullscan(t_filler *f);
 int				**ft_malloc_xymap(int x, int y);
 void			ft_map_to_xy(t_filler *f);
-int				ft_checkpalce(t_filler *f, int posx,int posy);
+int				ft_checkpalce(t_filler *f, int posx, int posy);
 int				ft_place(t_filler *f);
 void			ft_play(t_filler *f);
-void			ft_printxymap(int **map,int lx,int ly,int fd);
 void			ft_setoffset(t_filler *f);
 void			ft_setbounds(t_filler *f);
 void			ft_freemap(unsigned char ***map, int y);
-void ft_printmapoffset(unsigned char **map,t_filler *f);
-//test purpose
-void ft_printmap(unsigned char **map,int ly,int lx,int fd);
+void			ft_setplace(t_filler *f, int i, int j);
 #endif

@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"visu.h": "c",
+		"sdl.h": "c"
+	}
+}

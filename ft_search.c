@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 12:39:50 by akhourba          #+#    #+#             */
-/*   Updated: 2019/05/01 20:21:37 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:34:01 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int		ft_scanmap(int **map, int lx, int ly, int c)
 {
 	int i;
 	int j;
-	char mc;
 
-	mc = ft_tolower(c);
 	i = -1;
 	while (++i < ly)
 	{
@@ -50,16 +48,6 @@ int		ft_scanmap(int **map, int lx, int ly, int c)
 			|| (i + 1 < ly && j + 1 < lx && map[i + 1][j + 1] == c)
 			|| (i - 1 >= 0 && j + 1 < lx && map[i - 1][j + 1] == c)
 			|| (i + 1 < ly && j - 1 >= 0 && map[i + 1][j - 1] == c)))
-				map[i][j] = 1;
-			else if (map[i][j] == 0 &&
-			((j + 1 < lx && map[i][j + 1] == mc)
-			|| (i + 1 < ly && map[i + 1][j] == mc)
-			|| (j - 1 >= 0 && map[i][j - 1] == mc)
-			|| (i - 1 >= 0 && map[i - 1][j] == mc)
-			|| (i - 1 >= 0 && j - 1 >= 0 && map[i - 1][j - 1] == mc)
-			|| (i + 1 < ly && j + 1 < lx && map[i + 1][j + 1] == mc)
-			|| (i - 1 >= 0 && j + 1 < lx && map[i - 1][j + 1] == mc)
-			|| (i + 1 < ly && j - 1 >= 0 && map[i + 1][j - 1] == mc)))
 				map[i][j] = 1;
 		}
 	}

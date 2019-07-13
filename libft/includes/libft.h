@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akhourba <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/06 14:53:08 by akhourba          #+#    #+#             */
-/*   Updated: 2018/10/16 22:17:12 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:57:21 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "get_next_line.h"
 
 # include "ft_printf.h"
+
 typedef	struct	s_list
 {
 	void			*content;

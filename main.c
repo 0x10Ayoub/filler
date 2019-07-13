@@ -6,16 +6,16 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 16:48:15 by akhourba          #+#    #+#             */
-/*   Updated: 2019/05/01 20:06:08 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 17:24:51 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int main()
+int	main(void)
 {
-	char *line;
-	t_filler f;
+	char		*line;
+	t_filler	f;
 
 	f.pchar = ft_getplayer();
 	f.echar = f.pchar == 'X' ? 'O' : 'X';
@@ -24,7 +24,7 @@ int main()
 	f.xymap = ft_malloc_xymap(f.lx, f.ly);
 	f.isread = get_next_line(0, &line);
 	free(line);
-	while(1 && f.isread == 1)
+	while (1 && f.isread == 1)
 	{
 		ft_initmap(&f);
 		ft_map_to_xy(&f);

@@ -6,7 +6,7 @@
 /*   By: akhourba <akhourba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 13:35:46 by akhourba          #+#    #+#             */
-/*   Updated: 2019/04/30 14:22:21 by akhourba         ###   ########.fr       */
+/*   Updated: 2019/05/02 22:04:28 by akhourba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	ft_lst_add(t_fram **lst, t_fram *new)
 {
 	new->next = (*lst);
-	if((*lst))
-	(*lst)->prev = new;
+	if ((*lst))
+		(*lst)->prev = new;
 	new->prev = NULL;
 	(*lst) = new;
 }
